@@ -8,8 +8,40 @@ Eslint, Prettier, Husky, and Commit-lint-config are integrated to maintain the b
 
 It is easy to deply on the Github pages & required configuration is implemented in the code.
 
+### How to use
+1. pull the code from [Github repo](https://github.com/devravinder/devravinder.github.io)
 
-### Things to do
+2. create a repository in your Github account
+
+3. Change the git remote url
+
+    ```git remote set-url origin your-repo-url ```
+
+2. Run the app in local
+
+    ```pnpm i``` (or) ```npm i```
+
+    ```npm run dev```
+
+3. update 
+
+    i. favicon.png /public folder
+
+    ii. images in /src/assets folder
+
+    iii. the data in /src/constats/index.ts 
+
+5. Commit the changes & push to your repo
+
+6. npm run deploy
+
+7. go to your Github repo settings, in the pages menu, under the branch section, select branch as 'gh-pages' & folder as '/root', and save. ( wait for the deployment )
+8. visit the site using link shown in the Github pages
+
+
+
+
+### Yet to do
 
 1. change color schema
 2. make responsive
