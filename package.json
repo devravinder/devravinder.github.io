@@ -1,8 +1,9 @@
 {
   "name": "devravinder.github.io",
-  "homepage": "https://devravinder.github.io/devravinder",
-  "private": true,
-  "version": "0.0.0",
+  "homepage": "https://devravinder.github.io",
+  "repository": "https://github.com/devravinder/devravinder.github.io.git",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
