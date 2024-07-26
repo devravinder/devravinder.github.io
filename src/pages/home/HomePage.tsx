@@ -28,6 +28,7 @@ export default function HomePage() {
           descriotion={profile.description}
           roles={profile.roles}
           cvUrl={profile.cvUrl}
+          imageUrl={profile.image}
         />
       </Section>
       <Section id="experience">

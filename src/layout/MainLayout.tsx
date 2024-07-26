@@ -1,6 +1,7 @@
 import Navbar from "layout/Navbar";
 import Footer from "layout/Footer";
 import { Outlet, ScrollRestoration } from "react-router-dom";
+import { profile } from "constants";
 
 const Content = () => {
   return (
@@ -16,7 +17,10 @@ export default function MainLayout() {
     <main className="relative min-h-screen min-w-full z-0 bg-primary">
       <Navbar />
       <Content />
-      <Footer />
+      <Footer
+        contactInfo={profile.contactInfo}
+        socialLinks={profile.socialLinks}
+      />
     </main>
   );
 }

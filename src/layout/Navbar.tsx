@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import close from "assets/close.svg";
 import menu from "assets/menu.svg";
-import { navLinks } from "constants";
+import { navLinks, profile } from "constants";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="max-w-7xl px-16 flex gap-20 justify-between items-center  mx-auto">
         <Link to="/" className="flex items-center gap-2">
           <p className="text-white text-[18px] font-medium cursor-pointer flex ">
-            Ravinder Reddy Kothabad
+            {profile.name}
           </p>
         </Link>
 

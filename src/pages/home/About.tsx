@@ -1,4 +1,3 @@
-import profile from "assets/profile.png";
 import {
   Button,
   DescriptionText,
@@ -10,10 +9,12 @@ export default function About({
   descriotion,
   roles,
   cvUrl,
+  imageUrl,
 }: {
   descriotion: string;
   roles: string[];
   cvUrl: string;
+  imageUrl: string;
 }) {
   const downoloadCV = () => {
     const a = document.createElement("a");
@@ -39,7 +40,7 @@ export default function About({
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <img className=" flex-grow-0 rounded-xl w-64" src={profile}></img>
+          <img className=" flex-grow-0 rounded-xl w-64" src={imageUrl}></img>
           <Button onClick={downoloadCV}>Download CV</Button>
         </div>
       </div>

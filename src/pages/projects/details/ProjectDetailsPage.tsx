@@ -20,7 +20,7 @@ const linkIcons: Record<string, JSX.Element> = {
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
-  const project = profile.projects?.[parseInt(id!)];
+  const project = profile.projects?.[parseInt(id!) - 1];
   return (
     <Section>
       <ProjectDetailsCard project={project} />
@@ -140,7 +140,7 @@ const ProjectSideDetails = ({
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="font-semibold text-2xl text-white">My Role</h3>
-        <ul className="list-disc list-inside">
+        <ul className="list-disc list-outside pl-4">
           {roles?.map((role, index) => {
             return <Li key={`role-${index}`}>{role}</Li>;
           })}
@@ -148,7 +148,7 @@ const ProjectSideDetails = ({
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="font-semibold text-2xl text-white">Key Features</h3>
-        <ul className="list-disc list-inside">
+        <ul className="list-disc list-outside pl-4">
           {features?.map((feature, index) => {
             return <Li key={`feature-${index}`}>{feature}</Li>;
           })}
@@ -171,6 +171,7 @@ const ProjectSideDetails = ({
               <a
                 key={`link-${index}`}
                 href={value}
+                target="_blank"
                 className="p-2 rounded-lg bg-tertiary justify-center items-center"
               >
                 {linkIcons[name] || linkIcons["externalLink"]}

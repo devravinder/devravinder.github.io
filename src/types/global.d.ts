@@ -1,4 +1,5 @@
 declare global {
+  type Links = Record<string, string>;
   type Project = {
     id: string;
     name: string;
@@ -9,7 +10,7 @@ declare global {
     roles: string[];
     features: string[];
     technologies: string[];
-    links: Record<string, string>;
+    links: Links;
     descriptions: string[];
   };
   type AchevementType = "trophy" | "medal" | "certification";
@@ -36,10 +37,19 @@ declare global {
     roles: string[];
   };
 
+  type ContactInfo = {
+    address: string;
+    phone: string;
+    email: string;
+  };
+
   type Profile = {
+    name: string;
+    image: string;
     description: string;
     roles: string[];
     cvUrl: string;
+    contactInfo: ContactInfo;
     achievements: Achevement[];
     qualifications: Education[];
     feedbacks: Feedback[];
@@ -47,6 +57,7 @@ declare global {
     projects: Project[];
     skills: Skill[];
     experiences: Experience[];
+    socialLinks: Links;
   };
 }
 export {};
