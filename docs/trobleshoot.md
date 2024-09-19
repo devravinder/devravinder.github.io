@@ -8,3 +8,9 @@
 
 2. eslint + prettier + husky + commit-lint configuration reference [link](https://theodorusclarence.com/shorts/husky-commitlint-prettier)
 
+
+3. to add commands to husky
+  create the corresponding file & add the commands
+
+  $ echo "npm test" > .husky/pre-commit
+
