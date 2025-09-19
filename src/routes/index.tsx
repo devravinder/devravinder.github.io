@@ -1,16 +1,12 @@
 import { lazy, Suspense, type ElementType } from "react";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  Navigate,
-} from "react-router-dom";
+import { RouterProvider, createHashRouter, Navigate } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
 import Loader from "@/components/Loader";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Loadable = (Component: ElementType) => (props: any) => {
   return (
-    <Suspense fallback={<Loader/>}>
+    <Suspense fallback={<Loader />}>
       <Component {...props} />
     </Suspense>
   );
@@ -19,7 +15,7 @@ const Loadable = (Component: ElementType) => (props: any) => {
 const EMPTY_PATH = "";
 const ANY_MATCH = "*";
 export default function Routes() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <MainLayout />,
@@ -57,13 +53,19 @@ export default function Routes() {
 }
 
 // main layout pages
-const OverViewPage = Loadable(lazy(() => import("@/pages/overview/OverViewPage")));
-const ExperiencePage = Loadable(lazy(() => import("@/pages/experience/ExperiencePage")));
-const ProjectsPage = Loadable(lazy(() => import("@/pages/projects/ProjectsPage")));
+const OverViewPage = Loadable(
+  lazy(() => import("@/pages/overview/OverViewPage"))
+);
+const ExperiencePage = Loadable(
+  lazy(() => import("@/pages/experience/ExperiencePage"))
+);
+const ProjectsPage = Loadable(
+  lazy(() => import("@/pages/projects/ProjectsPage"))
+);
 const SkillsPage = Loadable(lazy(() => import("@/pages/skills/SkillsPage")));
-const EducationPage = Loadable(lazy(() => import("@/pages/education/EducationPage")));
+const EducationPage = Loadable(
+  lazy(() => import("@/pages/education/EducationPage"))
+);
 const ContactPage = Loadable(lazy(() => import("@/pages/contact/ContactPage")));
-
-
 
 const Page404 = Loadable(lazy(() => import("@/pages/Page404")));
