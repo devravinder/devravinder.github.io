@@ -33,6 +33,8 @@ It is easy to deply on the Github pages & required configuration is implemented 
 
 5. Commit the changes & push to your repo
 
+6. Add email js secrets in .env file ( refer .env.sample )
+
 6. npm run deploy
 
 7. go to your Github repo settings, in the pages menu, under the branch section, select branch as 'gh-pages' & folder as '/root', and save. ( wait for the deployment )
