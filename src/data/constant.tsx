@@ -1,4 +1,5 @@
 import { LogoMicrosoft } from "@/components/MicrosoftIcon";
+import type { JSX } from "react";
 import {
   SiOpenjdk,
   SiSpringboot,
@@ -96,7 +97,7 @@ const techStack = [
 ] as const;
 
 export type TechName = (typeof techStack)[number]["name"];
-export type Tech = (typeof techStack)[number];
+export type Tech ={name: string, icon?: JSX.Element, color: string} //typeof techStack)[number]
 
 export const technologies: Record<TechName, Tech> = techStack.reduce(
   (map, ele) => {

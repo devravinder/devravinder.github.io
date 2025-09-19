@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Heading, SectionHeader, SubHeading } from "@/components/Elements";
 import { motion } from "framer-motion";
 import profie from "@/data/profile";
