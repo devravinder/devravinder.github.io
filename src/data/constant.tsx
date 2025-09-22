@@ -37,8 +37,13 @@ import {
   SiExpress,
   SiPrisma,
   SiSequelize,
-  SiPrometheus, SiGrafana, SiKibana
+  SiPrometheus,
+  SiGrafana,
+  SiKibana,
+  SiAwselasticloadbalancing
 } from "react-icons/si";
+import { FaTheaterMasks } from "react-icons/fa";
+
 
 const techStack = [
   { name: "Java", icon: <SiOpenjdk />, color: "bg-[#f89820]" },
@@ -68,6 +73,11 @@ const techStack = [
   { name: "Mockito", color: "bg-green-600" },
   { name: "Jest", icon: <SiJest />, color: "bg-[#C21325]" },
   { name: "Cypress", icon: <SiCypress />, color: "bg-[#17202C]" },
+  {
+    name: "Playwright",
+    icon: <FaTheaterMasks />,
+    color: "bg-[#2EAD33]",
+  },
   { name: "Gatling", icon: <SiGatling />, color: "bg-orange-500" },
   { name: "K6", icon: <SiK6 />, color: "bg-[#7D64FF]" },
   { name: "Elasticsearch", icon: <SiElasticsearch />, color: "bg-[#005571]" },
@@ -78,6 +88,7 @@ const techStack = [
   { name: "AWS", color: "bg-[#FF9900]" },
 
   { name: "REST", icon: <SiResend />, color: "bg-blue-400 text-white" },
+  { name: "Micro Services", icon: <SiAwselasticloadbalancing/>, color: "bg-[#844FBA]" },
   { name: "Terraform", icon: <SiTerraform />, color: "bg-[#844FBA]" },
   {
     name: "GitHub Pipelines",
@@ -91,13 +102,13 @@ const techStack = [
   { name: "Azure", icon: <LogoMicrosoft />, color: "bg-[#0078D4]" },
   { name: "Prometheus", icon: <SiPrometheus />, color: "bg-[#E6522C]" },
   { name: "Grafana", icon: <SiGrafana />, color: "bg-[#F46800]" },
-  { name: "Loki", color: "bg-[#00B941]" },   // Loki green
-  { name: "Tempo",  color: "bg-[#8A2BE2]" }, // Tempo purple
+  { name: "Loki", color: "bg-[#00B941]" }, // Loki green
+  { name: "Tempo", color: "bg-[#8A2BE2]" }, // Tempo purple
   { name: "Kibana", icon: <SiKibana />, color: "bg-[#005571]" },
 ] as const;
 
 export type TechName = (typeof techStack)[number]["name"];
-export type Tech ={name: string, icon?: JSX.Element, color: string} //typeof techStack)[number]
+export type Tech = { name: string; icon?: JSX.Element; color: string }; //typeof techStack)[number]
 
 export const technologies: Record<TechName, Tech> = techStack.reduce(
   (map, ele) => {

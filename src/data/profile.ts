@@ -117,6 +117,7 @@ export const profie ={
         technologies.REST,
         technologies.gRPC,
         technologies.GraphQL,
+        technologies["Micro Services"],
 
         technologies.PostgreSQL,
         technologies.MongoDB,
@@ -142,6 +143,7 @@ export const profie ={
         technologies.Mockito,
         technologies.Jest,
         technologies.Cypress,
+        technologies.Playwright,
         technologies.Gatling,
         technologies.K6,
 
@@ -172,7 +174,8 @@ export const profie ={
             technologies["Spring Boot"],
             technologies["Node.js"],
             technologies.Express,
-            technologies.REST, technologies.GraphQL, technologies.gRPC
+            technologies.REST, technologies.GraphQL, technologies.gRPC,
+            technologies["Micro Services"]
         ],
         "Frontened Technologies":[
             technologies.React, technologies.JavaScript, technologies.TypeScript, technologies["Next.js"],
@@ -183,11 +186,14 @@ export const profie ={
             technologies.Git, technologies["GitHub Pipelines"], technologies.Linux
         ],
         "Testing":[
-            technologies.JUnit5, technologies.AssertJ, technologies.Mockito, technologies.Cypress, technologies.Jest,
+            technologies.JUnit5, technologies.AssertJ, technologies.Mockito, technologies.Cypress, 
+            technologies.Playwright,
+            technologies.Jest,
             technologies.K6, technologies.Gatling
         ],
         "DBs & Others":[
             technologies.PostgreSQL, technologies.MongoDB, technologies.Elasticsearch, technologies.Redis,
+            technologies.RabbitMQ, technologies["Apache Kafka"],
             technologies.Prometheus, technologies.Grafana, technologies.Loki, technologies.Tempo, technologies.Kibana
         ]
 
