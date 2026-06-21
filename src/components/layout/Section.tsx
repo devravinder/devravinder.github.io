@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import ProfileCard from "./ProfileCard";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ export default function Section() {
         className="min-w-xs grow pb-12">
             <Outlet />
         </motion.div>
-        <ScrollRestoration />
+        {/* <ScrollRestoration /> this is causing issue in github pages */}
       </div>
     </section>
   );
