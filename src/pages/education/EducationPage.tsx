@@ -1,8 +1,12 @@
 import { SectionHeader, SubHeading, Heading } from "@/components/Elements";
 import { profie, type Education } from "@/data/profile";
+import useScrollIntoView from "@/hooks/useScrollIntoView";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 export default function EducationPage() {
+    const ref = useRef<HTMLDivElement>(null);
+    useScrollIntoView(ref)
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -10,7 +14,7 @@ export default function EducationPage() {
       transition={{ duration: 0.8, delay: 0.4 }}
       className="flex flex-col gap-14"
     >
-      <SectionHeader>
+      <SectionHeader ref={ref}>
         <Heading>Educational Journey</Heading>
         <SubHeading>Learning that fuels innovation and growth.</SubHeading>
       </SectionHeader>

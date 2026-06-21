@@ -2,8 +2,12 @@ import { Badge } from "@/components/ui/badge";
 import { Heading, SectionHeader, SubHeading } from "@/components/Elements";
 import { motion } from "framer-motion";
 import { profie, type Experience } from "@/data/profile";
+import { useRef } from "react";
+import useScrollIntoView from "@/hooks/useScrollIntoView";
 
 export default function ExperiencePage() {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollIntoView(ref)
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,7 +15,7 @@ export default function ExperiencePage() {
       transition={{ duration: 0.8, delay: 0.4 }}
       className="flex flex-col gap-14"
     >
-      <SectionHeader>
+      <SectionHeader ref={ref} >
         <Heading>Experience</Heading>
         <SubHeading>
           My professional journey and the amazing companies I've worked with

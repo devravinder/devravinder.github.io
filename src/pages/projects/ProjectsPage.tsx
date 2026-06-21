@@ -10,8 +10,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useRef } from "react";
+import useScrollIntoView from "@/hooks/useScrollIntoView";
 
 export default function ProjectsPage() {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollIntoView(ref)
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -19,7 +23,7 @@ export default function ProjectsPage() {
       transition={{ duration: 0.8, delay: 0.4 }}
       className="flex flex-col gap-14"
     >
-      <SectionHeader>
+      <SectionHeader ref={ref} >
         <Heading>Key Projects</Heading>
         <SubHeading>
           Highlighted Projects Demonstrating Technical Expertise and Business

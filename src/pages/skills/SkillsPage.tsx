@@ -3,8 +3,13 @@ import { motion } from "framer-motion";
 import profie from "@/data/profile";
 import type { Tech } from "@/data/constant";
 import { TechsCard } from "../overview/OverViewPage";
+import { useRef } from "react";
+import useScrollIntoView from "@/hooks/useScrollIntoView";
 
 export default function SkillsPage() {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollIntoView(ref)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -12,7 +17,7 @@ export default function SkillsPage() {
       transition={{ duration: 0.8, delay: 0.4 }}
       className="flex flex-col gap-14"
     >
-      <SectionHeader>
+      <SectionHeader ref={ref} >
         <Heading>Skills</Heading>
         <SubHeading>
           Core Competencies Across Frontend, Backend, and Cloud Technologies

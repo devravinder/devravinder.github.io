@@ -3,11 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
+import useScrollIntoView from "@/hooks/useScrollIntoView";
 import emailjs from "@emailjs/browser";
-import { useTransition } from "react";
+import { ErrorMessage } from "@hookform/error-message";
+import { motion } from "framer-motion";
+import { useRef, useTransition } from "react";
+import { useForm } from "react-hook-form";
 
 type Message = {
   name: string;
@@ -22,6 +23,8 @@ const credentilas = {
 };
 
 export default function ContactPage() {
+  const ref = useRef<HTMLDivElement>(null);
+  useScrollIntoView(ref)
   const [isLoading, startTransition] = useTransition();
 
   const {
@@ -49,7 +52,7 @@ export default function ContactPage() {
         from_email: data.email,
         message: data.text,
       },
-      credentilas.publicKey
+      credentilas.publicKey,
     );
 
     return res;
@@ -59,10 +62,10 @@ export default function ContactPage() {
     startTransition(async () => {
       clearErrors();
       try {
-        console.log({data})
+        console.log({ data });
         await sendEmail(data);
       } catch (error) {
-        console.log({error})
+        console.log({ error });
         setError("root.serverError", {
           type: "500",
           message: "Something went wrong. Please try again later.",
@@ -83,7 +86,7 @@ export default function ContactPage() {
       transition={{ duration: 0.8, delay: 0.4 }}
       className="flex flex-col gap-14"
     >
-      <SectionHeader>
+      <SectionHeader ref={ref} >
         <Heading>Get in Touch</Heading>
         <SubHeading>
           Always happy to discuss technologies, ideas, and opportunities.
@@ -137,22 +140,22 @@ export default function ContactPage() {
                 required
               />
               <ErrorMessage
-                  errors={errors}
-                  name="text"
-                  render={({ message }) => (
-                    <p className="text-sm px-6 text-red-500">{message}</p>
-                  )}
-                />
+                errors={errors}
+                name="text"
+                render={({ message }) => (
+                  <p className="text-sm px-6 text-red-500">{message}</p>
+                )}
+              />
             </div>
             {errors.root?.serverError?.type === "200" ? (
-            <p className="text-sm px-6 text-green-500">
-              {errors.root?.serverError?.message}
-            </p>
-          ) : (
-            <p className="text-sm px-6 text-red-500">
-              {errors.root?.serverError?.message}
-            </p>
-          )}
+              <p className="text-sm px-6 text-green-500">
+                {errors.root?.serverError?.message}
+              </p>
+            ) : (
+              <p className="text-sm px-6 text-red-500">
+                {errors.root?.serverError?.message}
+              </p>
+            )}
 
             <Button disabled={isLoading} type="submit" className="w-full">
               Submit
