@@ -4,7 +4,7 @@ import useIsMobile from "./useIsMobile";
 export default function useScrollIntoView(
   ref: React.RefObject<HTMLDivElement | null>,
 ) {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
   const scrollIntoView = (ele: HTMLDivElement) => {
     ele.scrollIntoView({
       behavior: "smooth",
@@ -14,7 +14,8 @@ export default function useScrollIntoView(
 
   useEffect(() => {
     const ele = ref?.current;
-    if (ele && isMobile) scrollIntoView(ele);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (ele && isMobile)
+      setTimeout(()=>scrollIntoView(ele),100)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref]);
 }
