@@ -1,4 +1,7 @@
-# How to use
+# Portfolio - Ravinder Reddy Kothabad
+My portfolio website, served from github pages
+
+## How to use
 
 1. update the data in /data/profile.ts file
 2. add email js env variables in .env (refer .env.sample)
